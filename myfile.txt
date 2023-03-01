@@ -1,0 +1,1043 @@
+=================== Windows PowerSheel Commands =============================
+Get-AppxPackage *photos* | Remove-AppxPackage
+
+======================= Stylesheet commands =================================
+Transition Animation and Responsie media query and flex
+
+In container box ---
+display: flex
+flex-wrap; wrap;
+flex-direction: row colomn reverser-row/colomn;
+flex-flow: direction wrap;
+justify-content: flex-start(start from left-top), flex-end(start from top right), center (horizontal center) HORIZONTAL
+align-item: flex-start(start from left-top), flex-end(start from top right), center (verticall center) VERTICAL
+align-content:  space-between, space-around,space-evently, flex-start,flex-end,center,stretch (The align-content property is used to align the flex lines.)
+justify-item: to justify agains its grid
+
+In flex item box --
+flex-grow: 0,1,2,3... to adjust spacw between boxes in row or col equal and gave the width same; OR by gaving 3 at any specifiec box then this will triple its size according to other
+flex-basis : len;%;rem;em;px; this is work just like maximum width of flex item box.
+align-self  it ignore container align item property and apply its own rule;
+justify-self : it ignore container justify content property and apply its own rule;
+
+animation-name: animation01;
+animation-duration: 3s;
+animation-iteration-count: 5;
+animation-delay: 5s;
+animation-timing-function: ease-in, ease-out, ease-in-out, linear.
+@keyframe animation01 {
+	0% { background-color: red;}
+	50% { background-color: blue;}
+	100% { background-color: white;}
+}
+.div {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	transition-property: background-color;
+	transtion-duration: 3s;
+	trasition-iteration-count: 5;
+	transition-delay: 5s;
+}
+.div:hover {
+	background-color: blue;
+}
+
+text-justify: none, auto, break-character, break-work
+word-wrap: break-word;
+word-break: keep-all, bbreak-all;
+outline-offset: 15px;
+background-color: linear-gradient(to bottom right, blue 15%, yellow 30%);
+background-color: radial-gradient( center, yellow 15%, blue 10%);
+background-color: conial-gradient(blue 10%, red 12%);
+text-shadow: horizontal px vertical px blurness px color;
+box-shadow: horizontal px vertixla px px spread px color inset;
+:hover :selected :selection :visited :link :active :checked
+::first-child ::last-child ::nth-child(2)
+overflow: none,auto,scroll,
+overflow-x: none/auto/scroll
+overflow-y: none/auto/scroll
+text-overflow: clip
+text-overflow: ellipses;
+resize: auto/none/horizontal/vertical
+z-index: 1;0;
+position: absolute;
+top: 5px;
+bottom: 5px;
+left: 6px;
+right: 7px;
+scroll-behaviour: smooth;
+.img {
+	position:  absolute;
+	margin-right: auto;
+	margin-left: auto;	
+}
+filter : drop-shadow();
+
+Responsive Design Required only Html and Css.
+
+Desktop Viewport : 1920 X 1080
+Laptop Viewport : 1270 X 720
+Table Viewport : 600 X 960
+Mobile Viewport : 480 X 720
+
+0.Meta Viewport
+1.Use width %
+2.Use box-sizing
+3.use media query in css
+
+@media only screen and (observer value) {design value}
+height width orientation resolution
+design value will only work when observer value true
+
+Media query syntax -
+@media not|only mediatype and (mediafeature and|or|not mediafeature) {
+  CSS-Code;
+}
+
+@Media KEYWORD MEDIA-TYPE KEYWORD (MEDIA-FEATURE : VALUE) { PROPERTY : VALUE;}
+
+To use different script of css as per various devices
+<link rel="stylesheet" media="screen and (min-width: 900px)" href="widescreen.css">
+<link rel="stylesheet" media="screen and (max-width: 600px)" href="smallscreen.css">
+
+Media types -
+all screen print speech
+Keyword -
+not = invert meaning of media query
+only = not let old browser apply media property w/o oberver truth accordence.
+and = to combine media type with media feature or types.
+ 
+To apply logical gates in observation use login statements
+AND NOT ONLY
+Media Features -
+any-hover	Does any available input mechanism allow the user to hover over elements? (added in Media Queries Level 4)
+any-pointer	Is any available input mechanism a pointing device, and if so, how accurate is it? (added in Media Queries Level 4)
+aspect-ratio	The ratio between the width and the height of the viewport
+color	        The number of bits per color component for the output device
+color-gamut	The approximate range of colors that are supported by the user agent and output device (added in Media Queries Level 4)
+color-index	The number of colors the device can display
+grid	        Whether the device is a grid or bitmap
+height	        The viewport height
+hover	        Does the primary input mechanism allow the user to hover over elements? (added in Media Queries Level 4)
+inverted-colors	Is the browser or underlying OS inverting colors? (added in Media Queries Level 4)
+light-level	Current ambient light level (added in Media Queries Level 4)
+max-aspect-rati The maximum ratio between the width and the height of the display area
+max-color	The maximum number of bits per color component for the output device
+max-color-index	The maximum number of colors the device can display
+max-height	The maximum height of the display area, such as a browser window
+max-monochrome	The maximum number of bits per "color" on a monochrome (greyscale) device
+max-resolution	The maximum resolution of the device, using dpi or dpcm
+max-width	The maximum width of the display area, such as a browser window
+min-aspect-rati The minimum ratio between the width and the height of the display area
+min-color	The minimum number of bits per color component for the output device
+min-color-index	The minimum number of colors the device can display
+min-height	The minimum height of the display area, such as a browser window
+min-monochrome	The minimum number of bits per "color" on a monochrome (greyscale) device
+min-resolution	The minimum resolution of the device, using dpi or dpcm
+min-width	The minimum width of the display area, such as a browser window
+monochrome	The number of bits per "color" on a monochrome (greyscale) device
+orientation	The orientation of the viewport (landscape or portrait mode)
+overflow-block	How does the output device handle content that overflows the viewport along the block axis (added in Media Queries Level 4)
+overflow-inline	Can content that overflows the viewport along the inline axis be scrolled (added in Media Queries Level 4)
+pointer	Is the  primary input mechanism a pointing device, and if so, how accurate is it? (added in Media Queries Level 4)
+resolution	The resolution of the output device, using dpi or dpcm
+scan	        The scanning process of the output device
+scripting	Is scripting (e.g. JavaScript) available? (added in Media Queries Level 4)
+update	        How quickly can the output device modify the appearance of the content (added in Media Queries Level 4)
+width	        The viewport width
+
+To use diff image as per viewport -
+<picture>
+  <source srcset="img_smallflower.jpg" media="(max-width: 400px)">
+  <source srcset="img_flowers.jpg">
+  <img src="img_flowers.jpg" alt="Flowers">
+</picture>
+
+<picture>
+	<source srcset="m.png" media="(max-width="500px)">
+	<source srcset="n.png" media="(max-width="300px)">
+</picture>
+
+1.Use 400px physical dimension for mobile viewport as medium
+2.Use 800px physical dimensionm for mobile viewport as medium
+3.Use more than 800px or free size for full screens as medium
+
+1.use the following head tags to integrate mobile tablet and desktop screen size displays style script seperately.
+<link rel="stylesheet" media="screen and (max-width: 400px)" href="https://m.css"/>
+<link rel="stylesheet" media="screen and (max-wdith: 800px)" href="https://m.css"/>
+<link rel="stylesheet" media="screen and (min-width: 800px)" href="https://m.css"/>
+
+1.Use % as unit to reize the element relatively to the parent element.
+2.use rem as unit to resize the element relatively to the root element [html]. It uses font-size as base of root element.
+3.Use em as unit to resize the element relatively to its parent element. It uses parent elements font-size as base.
+If use unit in other css property ten it will multiplies the both font sizes of parent element and current element and therfore given value also
+ex.: .parent { fonr-size: 10px;} .child { font-size: 3em; padding: 3em; } then orignal padding apply will be 3*3*10=90px.
+4.Use vw as unit to resize as relatively to the 1% of available viewport width.
+5.Use vh as unit to resize as relatively to the 1% of available viewport height 
+6.Use vmax as unit resize as relatively to the 1% of availabel viewport smaller dimension either width or height. Only work until width or heigt.
+7.Use vmin as unit resize as relatively to the 1% of available viewport larger dimension either width or height. Only work until width or heigt.
+
+NOTE : vh and vw as only relative to the available screen viewport size.
+NOTE : % are the relative to the its parent element no matter of available viewport size.
+
+1.Use meta tag to ask the browser that render document as per viewprt available or define width of the documetn as per viewport available
+<meta name="vieport" content="width=device-width, initial-scale=1.0"/>
+and fix the zoom level at standard of the document at first loaded.
+2.Use @media feature to enable responsible design as per viewport dynamics or availability
+@media screen and (min-width: 800px) 
+{
+.box {
+background-color
+} /* query closure */
+
+} /* media closure */
+
+What to change---
+1.width of viewport
+2.height of vieport
+
+what to be responsive---
+1.layout of the site
+2.height and width of elements
+3.display hidden or visible of elements
+4.changes in functionality
+
+What is resolution ---
+The resolution is the XXX x YYY format numbers representd the amount of total pixels available on a display surface.
+
+Is more resoltuion good or bad?
+More resolution means more pixels on a display surface therfore more pixel means more clear and sharp image.
+
+Physical pixels vs. logical pixels---
+pixels mentioned in displays and cemeras are the logical as they can be in any of numbers in a specific area of surface of display.
+pixels mentioned in graphics design and digital animationa or web design industry are the physical as they are fixed in form of pre-defined lenth 1px=0.26mm.
+
+Viewport vs. resolution---
+a device resolution tell about how many pixels is situated on the surface of the display.
+But viewport is fixed as physical pixel and tell the exact size of the display.
+
+Standard and Average viewport size of mobile devices is the 400px (max-width:400px)
+Standard and Average viewport size of tablet devices is the 800px (max-width: 800px)
+Standard and Average viewport size of desktop device is more than 800px (min-width: 800px)
+
+To stick fotter in below of all elements until -75% zoom +
+use Position: relative and bottom: 0; in footer main tag
+
+Use rem for height for header 
+Use rem for width of the desktop only viewport for images
+Use width % for div box in every viewport 
+
+Internet Explorer Meta Tags
+<meta http-equiv='Page-Enter' content='RevealTrans(Duration=2.0,Transition=2)'>
+<meta http-equiv='Page-Exit' content='RevealTrans(Duration=3.0,Transition=12)'>
+<meta name='mssmarttagspreventparsing' content='true'>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta name='msapplication-starturl' content='http://blog.reybango.com/about/'>
+<meta name='msapplication-window' content='width=800;height=600'>
+<meta name='msapplication-navbutton-color' content='red'>
+<meta name='application-name' content='Rey Bango Front-end Developer'>
+<meta name='msapplication-tooltip' content='Launch Rey Bango's Blog'>
+<meta name='msapplication-task' content='name=About;action-uri=/about/;icon-uri=/images/about.ico'>
+<meta name='msapplication-task' content='name=The Big List;action-uri=/the-big-list-of-javascript-css-and-html-development-tools-libraries-projects-and-books/;icon-uri=/images/list_links.ico'>
+<meta name='msapplication-task' content='name=jQuery Posts;action-uri=/category/jquery/;icon-uri=/images/jquery.ico'>
+<meta name='msapplication-task' content='name=Start Developing;action-uri=/category/javascript/;icon-uri=/images/script.ico'>
+<meta name='msvalidate.01' content='6E3AD52DC176461A3C81DD6E98003BC9'>
+
+Link 
+<link rel='alternate' type='application/rss+xml' title='RSS' href='http://feeds.fee dburner.com/martini'>
+<link rel='alternate' type='application/atom+xml' title='Atom 0.3' href='https://e xample.com/feed.atom'>
+<link rel='shortcut icon' type='image/ico' href='/favicon.ico'>
+<link rel='fluid-icon' type='image/png' href='/f luid-icon.png'>
+<link rel='me' type='text/html' href='http://go ogle.com/profiles/thenextweb'>
+<link rel='shortlink' href='http://blog.unto.n et/?p=353'>
+<link rel='archives' title='May 2003' href='http://blog.unto.n et/2003/05/'>
+<link rel='index' title='DeWitt Clinton' href='http://blog.unt o.net/'>
+<link rel='start' title='Pattern Recognition 1' href='http://blo g.unto.net/photos/pattern_recognition_1_about/'>
+<link rel='bookmark'title='Styleguide' href='http://paulrobertl loyd.com/about/styleguide/'>
+<link rel='search' href='/search.xml' type='application/opensearchdescription+xml' title='Viatropos'>
+<link rel='self' type='application/atom+ xml' href='http://www.syfyportal.com/atomFeed.php?page=3'>
+<link rel='first' href='http://www.syfy portal.com/atomFeed.php'>
+<link rel='next' href='http://www.syfy portal.com/atomFeed.php?page=4'>
+<link rel='previous' href='http://www .syfyportal.com/atomFeed.php?page=2'>
+<link rel='last' href='http://www.sy fyportal.com/atomFeed.php?page=147'>
+<link rel='canonical' href='http:// smallbiztrends.com/2010/06/9-things-to-do-before-entering-social-media.html'>
+<link rel='EditURI' type='applicat ion/rsd+xml' title='RSD' href='http://smallbiztr ends. com/xmlrpc.php?rsd'>
+<link rel='pingback' href='http:/ /smallbiztrends.com/xmlrpc.php'>
+<link rel='stylesheet' media='only screen and (max-device-width: 480px)' href='http://w ordpress.org/style/iphone.css' type='text/css'>
+<link rel='wlwmanifest' href='ht tp://www.example.com/wp-includes/wlwmanifest.xml' type='application/wlwmanifest+xml'>
+
+
+=============================================== PHP =========================================
+#To Install PHP-compiler just unzip and Move PHP folder a sutable location (Prefered in Programs Folder)
+#Copy and rename php.ini file from development or production ini file
+#To execute php add php.exe path in System Environemt Variables
+#To show php version
+php -v
+#To show php commands
+php -h
+#To start php server 
+php -S hostname:port
+#Check where is php.ini file located or used as configuration
+php --ini
+#To show php info
+php --info
+
+#To uninstall php
+#Remove php environment variables
+#Delet php folder
+
+#In order to use php.exe and apply ini file to php compiler set both values to the apache settings httpd.cong
+
+#When in PHP setting (ini) display-error parameter is off then PHP-unable to show error show SERVER return ERROR 500
+#On display-error in php.ini file
+#To connect PHP with Mysql the default mysql-driver OR connector installed with PHP-compiler by default.
+#Enable the extension of mysqli in PHP.ini file to work with mysqli object
+extension=mysqli 'remove comment ;'
+
+
+
+
+=============================================== Laravel ==============================================
+#Download composer software
+#Environment variable will be added automaticaly so composer will run from any directory
+#To install laravel-installer software using composer
+composer global require laravel/installer
+#To uninstall laravel-installer software using composer
+composer global remove laravel/installer
+#To check composer version
+composer --version
+#To check laravel-installer version
+laravel --version
+#To clear screen of cmd
+cls
+#To change directory where our project will host
+cd C:\apache24\htdocs\laravel_project
+#To create new laravel project
+laravel new Project_name
+#Change directory in project directory
+cd project_name
+#To host of laravel project start the host service
+php artisan serve
+
+
+
+
+========================================== Apache Server ======================================================
+#Download apache lounge version from https: //httpd.apache.org/download.cgi
+#Click on apache httpd for windows download from third-party-vendors
+#Select popular option as Apache lounge link
+#Be sure installed latest Visual C++ Redistributable Visual Studio support component :: vc-redist x64
+#Download apache binaries zip
+#Unzip in download folder
+#Move 'apaceh24' folder in special location
+#make sure in apache/cong/httpd.conf file 'SRVROOT = apache main folder location'
+#To install apache as windows service run the cmd as admin
+#locate httpd.exe location ex- cd C:\apache24\lib
+httpd.exe -k install
+#click on apacheMonitor to see or start or stop or restart host services
+#Enjoy server host at 127.0.0.1 OR localhost
+#Root directory will be ex- C:\\apache24\htdocs\index.html
+
+#Apache is responsible to execute PHP scripts using the PHP.exe complier 
+#PHP.exe will execute and response back the Markup of webpage
+#To run PHP script first modify HTTPD.CONF file to let apache-> httpd.exe know PHP.exe location
+#Add following Text in last of the httpd.conf file
+
+# PHP8 module
+PHPIniDir "-location-of-php.ini-file-with-farward-slash-/-"
+LoadModule php_module "-location-of-php8apache2_4.dll-file-with-filename-and-extension-with-farward-slash-and-here-php.exe-should-placed-/-"
+AddType application/x-httpd-php .php
+
+#If window unimaously enable 'World wide web publishing via IIS' PID 4 named service then it uses port 80 and 
+terminate apache2.4 service and socket access is denied.
+#Either disable above service or change Listen port in apache config file.
+
+#If server domain not qualified error occur then uncomment and assign any name to ServerName
+ServerName localhost 'uncomment remove # sign'
+
+
+
+=========== To Enable Our Localhost Server Access From The Internet ===========
+1.Know System IP address using execute 'ipconfig' command in cmd
+2.Create a Inbound rule in firewall [localport-80]
+3.Access the root directory using system IP address
+4.Done
+
+
+================================================= Mysql Server =====================================================
+
+=========== Download and Install Mysql Server and Shell Software =============
+#Download mysql from mysql.com/download
+#Click on Mysql-installer-Community(GLP) software
+#Select custom mode during installation
+#Click on Mysql Shell/Mysql Windows Installer link
+#Click on Mysql MSI Installer to download software
+#Install the Mysql Software
+#Select Products as Mysql-server, Mysql-Shell and run Installation
+
+========== Setup Root User-Account ===============
+#Mysql Installer ask to create default USER_ACCOUNT
+#Set root user-account password
+#See root user-account username
+#See root user-account hostname
+#See root user-account port number
+#By default root user-account cretidentials are
+Ex - Username : root
+Ex - Hostname : localhost
+Ex - Password : 1234
+Ex - Port : 3306
+
+============ Start OR Stop OR Restart Server service =========
+#To start database-server host service
+#Run cmd as admin
+#locate mysql.exe directory
+net start mysql80 (8.0 version)
+#Stop service
+net stop mysql80
+#To Show/create/edit/delete user-account or see Server status use mysql monitor as mysql.exe
+#locate mysql.exe directory
+mysql -u __username__ -p __password -h __hostname__
+#Welcome in Mysql Monitor
+
+============ Change Root Password ============
+#Change Password
+#Open cmd as admin
+#stop service
+#locate mysqld.exe directory in cmd
+mysqladmin -u __username -p password __NEW-PASSWORD__
+ENETR-NEW-PASSWORD
+#Password will be changed to selected user-account.
+
+============ Reset Root Password =============
+#Reset Password
+#Create a text file which has called mysql-init.txt
+ALTER USER 'username'@'hostname' IDENTIFIED BY 'new-password';
+#Copy hidden my.ini file location
+#Open cmd as admin
+#Stop the service
+#locate mysqladmin.exe directory in cmd
+mysqld --default-files="--use-double-slashed-and-paste-my.ini-file-location" --init-file=mysql-ini.txt-file-location
+-- console
+#Password will be reset to selected user-account.
+
+
+=========== To Enable Our Localhost Database Server Access From The Internet ===========
+1.Know System IP address using execute 'ipconfig' command in cmd
+2.Create a Inbound rule in firewall [localport-3306]
+3.Enable local system as Access IP by updating Access IP list in Mysql Server
+4.Using Mysql client with system IP address, username and password establish connection
+5.Done
+
+If can access database server using script that is located in the root directory of web server hosted on the
+same server as database server hosted, in that case we user hostname as localhost and username with password.
+In that case adjustment of firewall not needed.
+
+Host is not allowed to connect to the MySql Server error occur when the MySql server acces-control-list
+has not added your local system IP address or you did not enable your system as Access IP.
+
+A Connection Timed Out error occurs when the database’s firewall won’t allow you 
+to connect to the database from your local machine or resource.
+
+
+**************************************************************
+*************************** Mysql Software *******************
+1.Mysql.exe => Used for monitor mysql-server
+2.Mysqld.exe => Used for reset root password
+3.Mysqladmin.exe => Used for change root password
+4.Mysqlsh.exe => Used to connect with server via user-accounts
+5.my.ini => Default server configuration file
+**************************************************************
+**************************************************************
+
+
+
+
+
+*********************** Using Mysql Monitor ******************
+**************************************************************
+#Using root password admin can loggin in mysql monitor via terminal or SSH
+#To see server status
+\status
+#When execute sql statement the no use '/' and use ';' and use capital letters
+#When execute commands then no use ';' and use '/' and use small letters
+#To login as root account OR any other user-account
+mysql -u username -p password -h hostname
+#Enter password
+#Done
+#\disconnect
+
+
+#Variables
+There is variable in mysql software which are accesable from anywhere in mysql 
+There is 3 type of variables 1.User-defined 2.Local 3.System
+User defined set with SET @variable-name=value;
+User defined show with SELECT @variable-name;
+System variable set with SET @secure_file_priv = "d:\export\";
+System variable show with SHOW VARIABLES LIKE "variable_name";
+To show all system variables SHOW VARIABLES;
+
+=============== SHOW USER ACCOUNT ==============================
+#To show user-accounts
+#There is default database named 'mysql' which has table named 'user'  which has record of 'user' and 'host'
+SELECT user FROM mysq.user;
+SELECT user, host FROM mysql.user;
+#To show user accout with Permission(s)
+SELECT * FROM mysql.user \G
+desc mysql.user;
+
+================== CREATE NEW USER ACCOUNT =====================
+#Create new user-account
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'new_password';
+
+=================== EDIT USERNAME AND/OR HOSTNAME ========================
+RENAME USER 'username'@'hostname' TO 'new-username'@'new-hostname';
+
+=================== CHANGE PASSWORD ===============
+ALTER USER 'username'@'hostname' IDENTIFIED By 'new-password';
+
+=================== DELETE USER ACCOUNT ========================
+#Delete user-account
+DROP USER 'username'@'hostname';
+
+===================  PERMISSIONS ===============================
+#To show all permissions
+SHOW GRANTS FOR 'username'@'hostname' \G;
+
+#To grand all permisions 
+GRANT ALL ON *.* TO 'username'@'hostname';
+FLUSH PRIVILEGES;
+
+#To revoke all permisions 
+REVOKE ALL ON *.* FROM 'username'@'hostname';
+FLUSH PRIVILEGES;
+
+#Grant special permisions
+GRANT type_of_permission ON database_name.table_name TO 'username'@'hostname';
+FLUSH PRIVILEGES;
+
+#Revoke special permisions
+REVOKE type_of_permission ON database_name.table_name FROM 'username'@'hostname';
+FLUSH PRIVILEGES;
+
+
+#To Resource Limit
+#When Create User-Account
+CREATE USER 'username'@'hostname' IDENTIFIED BY 'password
+    WITH 
+	MAX_QUERIES_PER_HOUR 20
+    MAX_UPDATES_PER_HOUR 10
+    MAX_CONNECTIONS_PER_HOUR 5
+    MAX_USER_CONNECTIONS 2;
+			  
+#To Alter Existing User-Account
+ALTER USER 'username'@'hostname' 
+	WITH 
+	MAX_QUERIES_PER_HOUR 100
+	MAX_UPDATES_PER_HOUR 10
+    MAX_CONNECTIONS_PER_HOUR 5
+    MAX_USER_CONNECTIONS 2;
+	
+==================================================================
+
+
+
+
+
+
+
+
+
+	
+******************* Using Mysql Shell ***************************
+*****************************************************************
+#Make default shell language as SQL
+\sql
+========== CONNECTION ============
+#Connect to the database server
+\connect username@hostame:port
+#Disconnect from the database server
+\disconnect
+#See status of connection
+\status
+
+========= USER ACCOUNT AND PERMISSIONS ===========
+#Show user-account
+#Create user-account
+#Rename user-account
+#Delete user-account
+#Grand OR Revoke OR Show permissions of user-account
+#We will only work for Database tasks
+#Change own password
+
+========= DATABASE ========
+#See databases list
+SHOW DATABASES;
+#Create new database
+CREATE DATABASE database-name ;
+#Rename a database
+Cannot change database name one it created
+#Delete a database
+DROP DATABASE database_name;
+#Open database
+USE DATABASE_NAME;
+
+======== TABLES ===========
+#Show tables
+SHOW TABLE table_name;
+
+#Open table
+SELECT COLUMN / * FROM table_name;
+
+#Create table
+CREATE TABLE `database_name`.`table_name` (
+	`Column_name` datatype(length) NOT NULL, 
+	Column_name datatype(length) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	Column_name datatype(length) NOT NULL AUTO_INCREMENT=initial-value PRIMARY KEY,
+	Column_name datatype(length) NOT NULL UNIQUE,
+	Column_name datatype(lenght) NOT NULL DEFAULT 'nakq';
+	Column_name datatype(length) NOT NULL CHECK(column_name>=55)
+	Column_name datatype(length) NOT NULL FOREIGN KEY REFERENCES table_name(Column_name of primiary key only),
+	Column_name datatype(lenght) NOT NULL COMMENT 'coment-text'
+	)
+ENGINE = engine, COMMENT = 'text';
+
+MINIMUM : CREATE TABLE `email_db` . `newddtsable` ( `name` INT NOT NULL ) ENGINE = InnoDB;
+
+MASTER COLOUM -> 
+Column_name datatype(length) ATTRIBUTE NULL AUTO_INCREMENT COMMENT 'text' INDEX DEFAULT, 
+
+#Rename table
+RENAME TABLE table_name TO new_table_name;
+
+#Edit structure of table
+-Add column
+ALTER TABLE table_name
+ADD column_name datatype;
+-Delete Column
+ALTER TABLE table_name
+DROP COLUMN column_name;
+-Datatype(length) change
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+-Change column name
+ALTER TABLE table_name CHNAGE old_table_name new_table_name ;
+#Change Constrains
+ALTER TABLE table_name;
+ADD contraint (column)
+DROP contraint (column)
+
+#Delete table
+DROP TABLE 'database'.'table_name';
+
+#Export table
+1.Secure_file_priv variable has value of dir location where exported data will download
+2.Get secure file priv values via SHOW VARIABLES LIKE "secure_file_priv";
+3.Change secure_file_priv value from my config file. With quotation and restart server.
+4.Change secure file priv option as NULL to enable export on any location.
+5.Insert specific location as value in secure_file_priv var where we wanna to download export data
+6.Sql query to export table
+SELECT * FROM table_name INTO OUTFILE 'D:\export\filename.csv';
+
+
+
+
+
+
+
+======== RECORDS ==========
+#Show record
+SELECT * FROM table_name;
+#Insert record
+INSERT INTO table_name (Colomn_name, Colomn_name) VALUES ('value,`value');
+#Insert record with auto-increment
+INSERT INTO table_name (Colomn_name_1, Colomn_name_2) VALUES ('value_1,'value_2'); not insert col_num_1 who is primary
+#Edit record
+UPDATE table_name
+SET column1 = value1, Column2 = value2
+WHERE condition;
+#Delete record
+DELETE FROM table_name WHERE condition;
+#Filter records
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+#Search records
+SELECT column1, column2, ...
+FROM table_name
+WHERE columnN LIKE pattern;
+
+#Get server version 
+SELECT @@VERSION
+
+
+
+=============================================== Gitbash ===============================================
+#Git is a Command-Line-Interface that enable download Github repository
+#Git is a Command-Line-Interface that enable create local Github repository
+
+#We assign a folder to git in which git declare that folder as local repository
+#All files tracking are done within this git folder/repository
+#To set as folder as local repository run cmd in folder location
+git init
+#To delete local git repository
+rm -rf .git
+#To show folder items list
+ls
+#To make directory 
+mkdir directory-name
+#To delete directory 
+rmdir directory-name
+#To open directory
+cd directory-address
+#To move back
+cd ..
+#To show git status
+git status
+#Set username
+git config --global user.name "username'
+#Set email address
+git config --global user.email "email address"
+#Set mobile
+git config --global user.mobile "+91 8956235587"
+#Set address
+git config --global user.address "Address"
+#Show all configuration settings list
+git config --list
+#Show who is curently loggedIn
+whoami
+#to show current working directory
+pwd
+#Long list of items
+ls -l
+#Short list of items
+ls -f
+#To create a file
+touch filename.extension
+#To stage file
+git add filename.extension
+git add --a #for stage all files
+#To remove from stage
+git rm --cached filename.ext
+#To commit a change
+git commit -m "message" filename.exe / -a 
+#To restore previous version of file
+git restore filename.ext
+#To unstage file
+git restore --staged filename.ext
+#To see commit history
+git log
+#To quit process
+q
+#To ignore files or folders
+#Crate a .gitignore file and add file name in this then these will be ignored
+.gitignore
+file.ext
+* .ext
+folder/
+#To connect central repository using HTTPS protocol
+git remote set-url origin -----link-----
+
+
+
+
+
+
+
+======================================== Regional Languages =======================================
+LANGUAGE    SCRIPT
+
+Hindi	 	Devnagri
+Sanskrit  	Devnagri
+Kokan 	 	Devnagri
+Dogri 	 	Devnagri
+Nepali 		Devnagri
+Bodo 		Devnagri
+Marathi 	Devnagri
+Maithli  	Devnagri
+Santhali  	Devnagri
+Gujrati  	Gujrati/Devnagri
+Kashmiri  	Nastliq/Devnagri
+Sindhi 		Nastliq/Devnagri
+Asaamee  	Assamee
+Oriya 	 	Oriya
+Urdu 		Nastliq
+Kannad 		kannad
+Tamil 	 	Tamil
+Telugu 	 	Telugu
+Punjabi  	Gurumukhi
+Manipuri  	Maithi
+Bangali		Bangla
+Malayalam  	Malayalam
+Balochi  	Nastliq
+Pashto  	Nastliq
+Dari 		Nastliq
+Sinhali  	Sinhali
+Burmese 	Burmese
+
+Script to learn :- 13
+Language to learn :- 17
+Nepali 
+Marathi	
+Gujrati 
+Sindhi 
+Asaamee
+Oriya
+Kannad
+Tamil
+Telugu
+Punjabi
+Bangali
+Malayalam
+Balochi
+Pashto
+Dari
+Sinhali
+Burmese
+
+SCRIPT
+GRAMMER
+VOCAB
+COVERSATION
+
+
+
+============================================  Input Validation Rules ===================================
+
+Name
+1.no empty
+2.no less than 5 char
+3.no more than 30 char
+4.no extra space(php)
+5.no other than string
+6.no emoji
+7.no white space only
+
+Surname 
+1.no empty
+2.no less than 5 char
+3.no more than 30 char
+4.no space allowed
+5.no other than string
+6.no emoji
+7.no white space only
+
+Email
+1.no empty
+2.no less than 5 char
+3.no more than 50 char
+4.no extra space/php
+5.no space(php)(html)
+6.no emoji
+7.no white space only(input type email doesn't recognise space as char/reconise as empty)
+8.no capital letter allowed
+
+Mobile
+1.no empty
+2.10 digit
+3.no space
+4.number only
+
+Password
+1.on empty
+2.no less than 8 char
+3.no more than 50 chars
+4.should have string
+5.should have integer
+6.should have special sumbols
+7.case-insensitive
+8.no white space only
+9.no code/php
+10.no emoji
+1.any type of data
+2.no space
+3.case-sensitive
+4.no empty
+5.no more than 50
+6.no less than 8
+7.no only space
+8.must have a capital letter
+9.must have a number
+10.must have a small letter
+11.must have symbol
+12.must match reconfirm
+
+Repassword
+1.same as password
+2.should match password
+
+Select
+should atleast one select
+
+Radio
+should atleast one select
+
+Checkbox
+may-one or many or nothing is required
+
+date
+1.should not empty
+2.should not less than define date
+3.should may not more than define date
+
+Bio
+no empty
+no lesst than 10 char
+no more than 239 char
+any type of data
+may have emoji
+no code/php
+may have space
+no white space only
+
+Link
+may optional
+may no empty
+can have any data type
+no code/php
+no white space only
+url detection
+
+1.check if request method is sent by post/get method to proceed
+2.declare null value in initial sceipt before capture superglobal variable
+3.save data in variavle by validate functioon that receive data and perform trim/htnlspecchar/stripslacse 
+function and
+return the data to the variable
+4.check if the super global submit value is same as value in submit buttobn
+5.htmlspecialchar will convert html code to simple text to avoid bad execution
+6.trim will cut all more than one space between characters
+7.stripslase will not do anything
+8.add require=true in html inout form
+9.use same name in radio input to let choose only one
+10.to choose more than one use checkbox
+
+IF FORM IS LONG OR AFTER NEXT OR SUBMIT CLICK THERE IS NOT PAGE REDIRECT THEN WE SHOULD 
+SHOW READDONLY TEXT IN INPUT FIELDS
+
+
+
+
+================================================== SKILLS =========================================
+COMPLETED
+=> HTML 
+=> CSS 
+=> JAVASCRIPT 
+=> PHP 
+=> Mysql
+=> Mariadb
+=> SQL 
+=> Jquery
+=> JSON
+=> API
+=> AJAX
+=> Rest API
+
+To Learn 
+=> MailServer
+=> FileServer
+=> Wordpress
+=> Google search console
+=> Google analytics
+=> sitemap.xml
+=> Domain nameserver and dns-records
+=> Hosting nameserver and cPanel settings
+
+
+
+-------------------
+hostname-
+no empty
+no more than 20
+no less than 1
+no special chars
+no space
+
+usermame-
+no empty
+no more than 20
+no less than 1
+no space
+
+password-
+no more than 20
+no space
+
+1.form validation
+2.chech global variable is available 
+3.validate 
+4.establish connection
+5.forward to homepage
+6.logout null variables and more login page
+
+external validation
+check variable isset
+store variables
+internal validation
+establish connection
+id established then forward to homepage
+
+
+
+=================================== Remote Database Server =====================================
+=> To establish connection hosting database MySql server remotely.
+1.Enable connecting system/host as access IP.
+2.Know Our system/host IP address v4.
+3.Click on 'remote server' option under database section of hosting panel.
+4.Add IP address in access IP input and comment(optional).
+5.Access IP can be delete or modify.
+6.Click 'MySql database' option under database section of hosting cpanel.
+7.Create new user account or know username and password of existing user account.
+8.Note the IP address of hosting server.
+9.To establish connection open Mysql Client.
+10.Fill hosting server IP address and database username and password.
+11.Connection successful.
+
+=> To connection database Server on hosting
+1.If database server and website hosted on same server then connect website with database server
+Using Hostname as localhost, user as defined and password as defined.
+
+=> To enable our localhost database server connect remotely over the internet
+1.Add rules in farewall to allow inbound connection 
+2.Add bind-address=connectin-machine-ip or 0.0.0.0 (IP4), ::(IP6) for All IPs under [mysqld] section
+and comment out #skip-networking 
+3.Make user with same hostname as IP of remote server
+4.Open Mysql client and establish connection 
+
+========================= Firewall System =====================================
+It is a software the installed on system to prevent unwanter access from Internet
+Firewall maintain a list called 'access-control-list' 
+Access-control-list has six parameters 
+1.Permission 2.IP Address 3.Protocol 4.Destination 5.Port 6.Application
+Firewall denies access to system if permission is denied to specific rules
+Firewall let access to system if permission is allowed to specific rules
+Firewall can be installed on single system called host-based firewall
+Firewall can be single hardware that protect whole intranet infrastructure called network-based firewall
+Firewall can be a part of anti-virus or router
+
+
+Outbound rules are applied when we send request to internet
+Inbound rules are appplies when we receiver request from internet
+we can add, modify,view or delete rules as well
+To know the IP address of any site execute 'ping domain.com' in cmd
+
+=> Search in window as 'window firewall'
+=> Info about private or public network
+=> Switch firewall with preference
+=> Switch notification with preference
+=> Restore default settings
+=> CRUD Inbound rules
+=> CRUD Outbound rules
+
+#No request will be responeded if its rule not defined in Inbound access control list
+#Every request will be sent if not rule defined in Outbound access control list
+
+
+=======================================================================
+Dec - job find
+Jan - co job
+3 month - search
+4 month DM Intern
+
+--1. Bloging
+--2. Wordpress-blog
+--4. story-wp
